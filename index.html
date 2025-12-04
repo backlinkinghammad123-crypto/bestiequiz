@@ -4,20 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Ultimate Best Friend Test: How Well Do You Know Your Bestie? | Friendship Quiz</title>
-    <meta name="description" content="Take the ultimate 'How Well Do You Know Me' quiz to test your friendship! Answer 15 deep-cut questions about your best friend to see if you have Soulmate Status. Start the BFF quiz now!">
-    <meta name="keywords" content="best friend test, friendship quiz, how well do you know me, BFF quiz, best friend questions, friendship test, ultimate best friend test">
+    <title>Best Friend Quiz Maker: Create a Custom 'How Well Do You Know Me' Test | Friendship Quiz</title>
+    <meta name="description" content="Discover your friendship style by taking our personality test. Use your results as the first step to create a custom 'How Well Do You Know Me' quiz for your best friend! Start the ultimate BFF quiz now.">
+    <meta name="keywords" content="best friend quiz maker, how well do you know me quiz, create bestie quiz, friendship quiz generator, custom friend test, best friend personality test">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="The Ultimate Best Friend Test: How Well Do You Know Your Bestie?">
-    <meta property="og:description" content="Test your deep knowledge of your closest companion with 15 fun, unique questions. Are you true BFFs?">
+    <meta property="og:title" content="Best Friend Quiz Maker: Create Your Custom BFF Test">
+    <meta property="og:description" content="Take the personality quiz to discover your friendship style, then create a custom 'How Well Do You Know Me' quiz for your best friends!">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://backlinkinghammad123-crypto.github.io/bestiequiz/">
+    <link rel="canonical" href="https://backlinkinghammad123-crypto.github.io/bestiequiz/">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
-            /* Light blue-gray background */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         /* Basic prose styling for the article */
         
@@ -26,7 +27,7 @@
         }
         
         .prose h4 {
-            @apply text-xl font-semibold text-teal-600 mb-3 mt-6;
+            @apply text-xl font-semibold text-purple-600 mb-3 mt-6;
         }
         
         .prose p {
@@ -40,6 +41,21 @@
         .prose strong {
             @apply font-semibold text-gray-900;
         }
+
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            transform: translateY(-2px);
+        }
+
+        .quiz-option input:checked + label {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
     </style>
 </head>
 
@@ -47,231 +63,640 @@
 
     <div class="container mx-auto p-4 md:p-8 lg:p-12">
 
-        <header class="text-center mb-10 bg-white p-6 md:p-10 rounded-xl shadow-2xl border-b-4 border-teal-500">
+        <header class="text-center mb-10 bg-white p-6 md:p-10 rounded-xl shadow-2xl border-b-4 border-purple-500">
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                The Ultimate Best Friend Test
+                Best Friend Quiz: Find Your Style & Make Your Own!
             </h1>
             <h2 class="text-xl md:text-2xl font-semibold text-gray-600">
-                How Well Do You Know Your Bestie? Take the Ultimate Friendship Quiz!
+                Start with Your Personality, End with a Custom BFF Test
             </h2>
             <div class="mt-6 text-left max-w-3xl mx-auto">
                 <p class="text-gray-700 leading-relaxed mb-4">
-                    In the digital age, a "best friend quiz" is more than just a passing trend; it's a genuine way to test and celebrate the deep, often hilarious knowledge you hold about your closest companion. Whether you’re looking to settle a friendly debate or simply
-                    seeking a fun activity to share, <a href="https://bestiequiz.com">this <strong>make your own Bestie Quiz</strong></a> is the perfect way to gauge just how in-sync you and your best friend truly are.
+                    Ready to create the ultimate "How Well Do You Know Me" quiz for your friends? Start here! This <strong>friendship personality quiz</strong> reveals your unique style—whether you're the Loyalist, Adventurer, Nurturer, or Entertainer. Understanding your style is the first step to knowing what kind of questions to ask your besties. Discover your friendship type, then <a href="https://bestiequiz.com" class="text-purple-600 font-semibold hover:underline">Create your own Bestie Quiz</a> to see how well your friends truly know you.
                 </p>
-                <h2 class="text-2xl font-bold text-teal-600 mb-3 mt-8">
-                    Why Take a "How Well Do You Know Me" Quiz?
+                <h2 class="text-2xl font-bold text-purple-600 mb-3 mt-8">
+                    Step 1: Discover Your Friendship Style
                 </h2>
                 <p class="text-gray-700 leading-relaxed">
-                    Friendship quizzes are highly <strong>sharable</strong> and <strong>engaging</strong> content! People search for terms like "<strong>best friend questions</strong>," "<strong>friendship test</strong>," and "<strong>BFF quiz</strong>"
-                    because they crave validation, fun, and content to share. This quiz challenges your knowledge on everything from obscure childhood stories to current coffee orders.
+                    People search for "<strong>how well do you know me quiz</strong>," "<strong>best friend quiz maker</strong>," and "<strong>custom friend test</strong>" to celebrate their bonds. This quick personality test analyzes your preferences, values, and social habits to reveal your authentic friendship personality, giving you the foundation to build your custom quiz later.
                 </p>
             </div>
         </header>
 
-        <form id="friendshipQuiz" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <form id="friendshipQuiz" class="space-y-6">
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-indigo-500 mb-2">Category 1: The Basics</p>
-                <label for="q1" class="block text-lg font-semibold text-gray-800 mb-2">
-                    1. What is your best friend's favorite color?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <p class="text-sm font-medium text-indigo-500 mb-2">Question 1 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    How do you prefer to spend your free time with friends?
                 </label>
-                <input type="text" id="q1" name="q1" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., Teal, Magenta, Black">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q1a" name="q1" value="adventurer" class="hidden">
+                        <label for="q1a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Going on spontaneous adventures and trying new activities
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q1b" name="q1" value="nurturer" class="hidden">
+                        <label for="q1b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Having deep conversations over coffee or dinner
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q1c" name="q1" value="entertainer" class="hidden">
+                        <label for="q1c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Hosting parties or attending social events
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q1d" name="q1" value="loyalist" class="hidden">
+                        <label for="q1d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Quiet nights in watching movies or playing games
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-indigo-500 mb-2">Category 1: The Basics</p>
-                <label for="q2" class="block text-lg font-semibold text-gray-800 mb-2">
-                    2. If they had to eat one cuisine for life, which would they choose?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
+                <p class="text-sm font-medium text-purple-500 mb-2">Question 2 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    When a friend is going through a tough time, you typically:
                 </label>
-                <input type="text" id="q2" name="q2" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., Italian, Thai, Mexican">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q2a" name="q2" value="nurturer" class="hidden">
+                        <label for="q2a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Listen empathetically and offer emotional support
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q2b" name="q2" value="adventurer" class="hidden">
+                        <label for="q2b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Suggest activities to distract them and lift their spirits
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q2c" name="q2" value="loyalist" class="hidden">
+                        <label for="q2c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Drop everything to be by their side immediately
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q2d" name="q2" value="entertainer" class="hidden">
+                        <label for="q2d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Use humor to help them see the lighter side
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-indigo-500 mb-2">Category 1: The Basics</p>
-                <label for="q3" class="block text-lg font-semibold text-gray-800 mb-2">
-                    3. What is their middle name?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
+                <p class="text-sm font-medium text-pink-500 mb-2">Question 3 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    What's your communication style with friends?
                 </label>
-                <input type="text" id="q3" name="q3" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="A single name">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q3a" name="q3" value="entertainer" class="hidden">
+                        <label for="q3a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Constant texts, memes, and group chat banter
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q3b" name="q3" value="nurturer" class="hidden">
+                        <label for="q3b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Meaningful check-ins and long phone calls
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q3c" name="q3" value="loyalist" class="hidden">
+                        <label for="q3c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Quality over quantity - occasional but deep conversations
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q3d" name="q3" value="adventurer" class="hidden">
+                        <label for="q3d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Spontaneous messages like "You free? Let's do something!"
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-indigo-500 mb-2">Category 1: The Basics</p>
-                <label for="q4" class="block text-lg font-semibold text-gray-800 mb-2">
-                    4. What is their current dream vacation destination?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <p class="text-sm font-medium text-indigo-500 mb-2">Question 4 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    How do you celebrate a friend's success?
                 </label>
-                <input type="text" id="q4" name="q4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., Iceland, Tokyo, The Maldives">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q4a" name="q4" value="entertainer" class="hidden">
+                        <label for="q4a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Throw them a surprise party or celebration
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q4b" name="q4" value="nurturer" class="hidden">
+                        <label for="q4b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Write them a heartfelt message about how proud you are
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q4c" name="q4" value="adventurer" class="hidden">
+                        <label for="q4c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Take them on a special adventure or experience
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q4d" name="q4" value="loyalist" class="hidden">
+                        <label for="q4d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Be their biggest cheerleader and share their joy
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-indigo-500 mb-2">Category 1: The Basics</p>
-                <label for="q5" class="block text-lg font-semibold text-gray-800 mb-2">
-                    5. What is one thing they are secretly afraid of?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
+                <p class="text-sm font-medium text-purple-500 mb-2">Question 5 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    What's your ideal group size for hanging out?
                 </label>
-                <input type="text" id="q5" name="q5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., Clowns, Public Speaking, The Ocean">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q5a" name="q5" value="loyalist" class="hidden">
+                        <label for="q5a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            One-on-one quality time
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q5b" name="q5" value="nurturer" class="hidden">
+                        <label for="q5b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            A small group of 3-4 close friends
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q5c" name="q5" value="entertainer" class="hidden">
+                        <label for="q5c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            The more the merrier - big group gatherings
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q5d" name="q5" value="adventurer" class="hidden">
+                        <label for="q5d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Flexible - depends on the activity
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-purple-500 mb-2">Category 2: Deep Cuts</p>
-                <label for="q6" class="block text-lg font-semibold text-gray-800 mb-2">
-                    6. What is the first movie you remember watching together?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
+                <p class="text-sm font-medium text-pink-500 mb-2">Question 6 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    How do you handle conflicts with friends?
                 </label>
-                <input type="text" id="q6" name="q6" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500" placeholder="Movie Title">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q6a" name="q6" value="nurturer" class="hidden">
+                        <label for="q6a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Address it immediately with open, honest communication
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q6b" name="q6" value="loyalist" class="hidden">
+                        <label for="q6b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Take time to process, then have a calm discussion
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q6c" name="q6" value="adventurer" class="hidden">
+                        <label for="q6c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Try to move past it and focus on positive experiences
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q6d" name="q6" value="entertainer" class="hidden">
+                        <label for="q6d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Use humor to diffuse tension, then talk it through
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-purple-500 mb-2">Category 2: Deep Cuts</p>
-                <label for="q7" class="block text-lg font-semibold text-gray-800 mb-2">
-                    7. If they could have any superpower, what would it be?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <p class="text-sm font-medium text-indigo-500 mb-2">Question 7 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    What role do you usually play in your friend group?
                 </label>
-                <input type="text" id="q7" name="q7" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500" placeholder="e.g., Flying, Telekinesis, Invisibility">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q7a" name="q7" value="entertainer" class="hidden">
+                        <label for="q7a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            The social organizer who plans everything
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q7b" name="q7" value="nurturer" class="hidden">
+                        <label for="q7b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            The therapist friend everyone comes to for advice
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q7c" name="q7" value="adventurer" class="hidden">
+                        <label for="q7c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            The spontaneous one who suggests wild ideas
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q7d" name="q7" value="loyalist" class="hidden">
+                        <label for="q7d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            The reliable rock who's always there
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-purple-500 mb-2">Category 2: Deep Cuts</p>
-                <label for="q8" class="block text-lg font-semibold text-gray-800 mb-2">
-                    8. What is the name of their first pet?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
+                <p class="text-sm font-medium text-purple-500 mb-2">Question 8 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    How do you maintain long-distance friendships?
                 </label>
-                <input type="text" id="q8" name="q8" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500" placeholder="Pet's name">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q8a" name="q8" value="nurturer" class="hidden">
+                        <label for="q8a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Regular video calls and thoughtful messages
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q8b" name="q8" value="loyalist" class="hidden">
+                        <label for="q8b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Pick up right where we left off, no matter the time apart
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q8c" name="q8" value="adventurer" class="hidden">
+                        <label for="q8c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Plan visits and trips to see each other
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q8d" name="q8" value="entertainer" class="hidden">
+                        <label for="q8d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Share memes, updates, and stay connected through social media
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-purple-500 mb-2">Category 2: Deep Cuts</p>
-                <label for="q9" class="block text-lg font-semibold text-gray-800 mb-2">
-                    9. What is their least favorite household chore?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
+                <p class="text-sm font-medium text-pink-500 mb-2">Question 9 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    What's your friendship deal-breaker?
                 </label>
-                <input type="text" id="q9" name="q9" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500" placeholder="e.g., Dishes, Laundry, Vacuuming">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q9a" name="q9" value="loyalist" class="hidden">
+                        <label for="q9a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Betrayal of trust or dishonesty
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q9b" name="q9" value="nurturer" class="hidden">
+                        <label for="q9b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Lack of emotional support or empathy
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q9c" name="q9" value="entertainer" class="hidden">
+                        <label for="q9c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Being too negative or draining energy
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q9d" name="q9" value="adventurer" class="hidden">
+                        <label for="q9d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Being closed-minded or unwilling to try new things
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-purple-500 mb-2">Category 2: Deep Cuts</p>
-                <label for="q10" class="block text-lg font-semibold text-gray-800 mb-2">
-                    10. What is their "go-to" order at your favorite coffee spot?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <p class="text-sm font-medium text-indigo-500 mb-2">Question 10 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    How do you make new friends?
                 </label>
-                <input type="text" id="q10" name="q10" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500" placeholder="e.g., Iced Latte, Black Coffee, Earl Grey">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q10a" name="q10" value="entertainer" class="hidden">
+                        <label for="q10a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            I'm outgoing and easily strike up conversations
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q10b" name="q10" value="adventurer" class="hidden">
+                        <label for="q10b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Through shared activities and hobbies
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q10c" name="q10" value="nurturer" class="hidden">
+                        <label for="q10c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Through deep one-on-one conversations
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q10d" name="q10" value="loyalist" class="hidden">
+                        <label for="q10d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Slowly, after getting to know them over time
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-pink-500 mb-2">Category 3: Future & Fun</p>
-                <label for="q11" class="block text-lg font-semibold text-gray-800 mb-2">
-                    11. If they won the lottery, what is the first big purchase?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
+                <p class="text-sm font-medium text-purple-500 mb-2">Question 11 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    What's your approach to giving advice?
                 </label>
-                <input type="text" id="q11" name="q11" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500" placeholder="e.g., A boat, a house, a trip">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q11a" name="q11" value="nurturer" class="hidden">
+                        <label for="q11a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Listen first, then offer gentle guidance
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q11b" name="q11" value="adventurer" class="hidden">
+                        <label for="q11b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Encourage them to take bold action
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q11c" name="q11" value="loyalist" class="hidden">
+                        <label for="q11c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Share my honest opinion and support their decision
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q11d" name="q11" value="entertainer" class="hidden">
+                        <label for="q11d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Help them see different perspectives with humor
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-pink-500 mb-2">Category 3: Future & Fun</p>
-                <label for="q12" class="block text-lg font-semibold text-gray-800 mb-2">
-                    12. What is their favorite late-night snack?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
+                <p class="text-sm font-medium text-pink-500 mb-2">Question 12 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    How do you show appreciation for your friends?
                 </label>
-                <input type="text" id="q12" name="q12" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500" placeholder="e.g., Popcorn, Cereal, Ice Cream">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q12a" name="q12" value="nurturer" class="hidden">
+                        <label for="q12a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Thoughtful gestures and heartfelt words
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q12b" name="q12" value="loyalist" class="hidden">
+                        <label for="q12b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Being consistently present and reliable
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q12c" name="q12" value="entertainer" class="hidden">
+                        <label for="q12c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Celebrating them publicly and making them feel special
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q12d" name="q12" value="adventurer" class="hidden">
+                        <label for="q12d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Creating memorable experiences together
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-pink-500 mb-2">Category 3: Future & Fun</p>
-                <label for="q13" class="block text-lg font-semibold text-gray-800 mb-2">
-                    13. What skill have they always wanted to learn?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <p class="text-sm font-medium text-indigo-500 mb-2">Question 13 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    What's your favorite way to reconnect after a busy period?
                 </label>
-                <input type="text" id="q13" name="q13" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500" placeholder="e.g., Guitar, Coding, Baking">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q13a" name="q13" value="nurturer" class="hidden">
+                        <label for="q13a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            A long catch-up conversation over coffee
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q13b" name="q13" value="adventurer" class="hidden">
+                        <label for="q13b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Jumping right back into an exciting activity
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q13c" name="q13" value="entertainer" class="hidden">
+                        <label for="q13c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            Organizing a group hangout with everyone
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q13d" name="q13" value="loyalist" class="hidden">
+                        <label for="q13d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500">
+                            A simple, comfortable hangout like old times
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-pink-500 mb-2">Category 3: Future & Fun</p>
-                <label for="q14" class="block text-lg font-semibold text-gray-800 mb-2">
-                    14. Which fictional character do they most identify with?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
+                <p class="text-sm font-medium text-purple-500 mb-2">Question 14 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    What trait do you value most in a friend?
                 </label>
-                <input type="text" id="q14" name="q14" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500" placeholder="Character name">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q14a" name="q14" value="loyalist" class="hidden">
+                        <label for="q14a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Loyalty and dependability
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q14b" name="q14" value="nurturer" class="hidden">
+                        <label for="q14b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Empathy and emotional intelligence
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q14c" name="q14" value="entertainer" class="hidden">
+                        <label for="q14c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Humor and positive energy
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q14d" name="q14" value="adventurer" class="hidden">
+                        <label for="q14d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500">
+                            Spontaneity and openness to new experiences
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500 hover:shadow-xl transition duration-300">
-                <p class="text-sm font-medium text-pink-500 mb-2">Category 3: Future & Fun</p>
-                <label for="q15" class="block text-lg font-semibold text-gray-800 mb-2">
-                    15. What is the one small thing you do that annoys them the most?
+            <div class="quiz-card bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
+                <p class="text-sm font-medium text-pink-500 mb-2">Question 15 of 15</p>
+                <label class="block text-lg font-semibold text-gray-800 mb-4">
+                    How do you define a successful friendship?
                 </label>
-                <input type="text" id="q15" name="q15" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500" placeholder="e.g., Running late, text-leaving, messy car">
+                <div class="space-y-3">
+                    <div class="quiz-option">
+                        <input type="radio" id="q15a" name="q15" value="loyalist" class="hidden">
+                        <label for="q15a" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Standing the test of time through all life changes
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q15b" name="q15" value="nurturer" class="hidden">
+                        <label for="q15b" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Mutual understanding and deep emotional connection
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q15c" name="q15" value="entertainer" class="hidden">
+                        <label for="q15c" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Creating joy and laughter together
+                        </label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" id="q15d" name="q15" value="adventurer" class="hidden">
+                        <label for="q15d" class="block p-4 border-2 border-gray-300 rounded-lg hover:border-pink-500">
+                            Pushing each other to grow and try new things
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="md:col-span-2 lg:col-span-3 text-center pt-4">
-                <button type="submit" class="bg-teal-600 text-white font-bold py-4 px-10 rounded-full shadow-xl text-xl uppercase tracking-wider 
-                                         hover:bg-teal-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-300">
-                    Get Your Score!
+            <div class="text-center pt-6">
+                <button type="submit" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-12 rounded-full shadow-xl text-xl uppercase tracking-wider 
+                                         hover:from-purple-700 hover:to-indigo-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-300">
+                    Discover My Friendship Style!
                 </button>
             </div>
         </form>
 
-        <section class="mt-16 pt-8 border-t-2 border-gray-300">
+        <section class="mt-16 pt-8 border-t-2 border-white border-opacity-30">
             <div class="bg-white p-8 md:p-12 rounded-xl shadow-xl prose max-w-4xl mx-auto">
 
                 <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-8">
-                    The Anatomy of a Best Friend: Why True Connection Matters More Than a Quiz Score
+                    Friendship Archetypes: The Foundation for Your Custom BFF Quiz
                 </h1>
 
                 <p>
-                    Everyone has friends, but a <strong>best friend</strong> is different. From work buddies to late-night meme sharers, the "best friend" title is reserved for someone who has witnessed your highs, lows, and the most ordinary moments.
-                    Taking a <strong>friendship quiz</strong> is fun, but the real magic lies in the deep, psychological bond built over time—a connection essential for long-term happiness and wellbeing.
+                    Understanding your <strong>friendship personality type</strong> is the crucial first step to creating an effective "How Well Do You Know Me" quiz. The questions you choose should reflect what is most important to you—whether it's your spontaneous nature, deep conversations, or absolute loyalty. This comprehensive guide explores the psychology behind friendship compatibility and the four distinct friendship archetypes.
                 </p>
 
-                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Part 1: How Friendships Begin – The Science of the "Click"</h2>
-                <p>Friendships don't just happen. They are formed through a combination of social cues, psychological factors, and mutual understanding.</p>
-
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Proximity and Exposure</h3>
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">The Psychology of Friendship Styles</h2>
                 <p>
-                    The first factor in friendship formation is <strong>proximity</strong>. You are more likely to bond with people you see often—at work, school, or in your neighborhood. This aligns with the <strong>mere exposure effect</strong>, where
-                    repeated interaction creates familiarity, trust, and comfort over time.
+                    Research in social psychology reveals that people approach friendships with distinct patterns of behavior, communication, and emotional investment. These patterns emerge from our personality traits, attachment styles, and life experiences. By identifying your friendship personality, you gain valuable insights into how you connect with others and what you need from close relationships, helping you formulate the best questions for your friends.
                 </p>
 
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Similarity and Homophily</h3>
+                <h3 class="text-xl font-semibold text-purple-700 mt-6 mb-3">The Four Friendship Archetypes</h3>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-4">1. The Nurturer - The Empathetic Caregiver</h4>
                 <p>
-                    Humans naturally gravitate toward others with similar values, sense of humor, and life experiences. This principle, called <strong>homophily</strong>, validates connection instantly and communicates, "I understand you. You're safe
-                    here."
+                    <strong>Nurturers</strong> are the emotional anchors of their friend groups. They possess exceptional emotional intelligence and instinctively know when friends need support. Nurturers thrive on deep, meaningful conversations and create safe spaces for vulnerability. They remember important details about their friends' lives and offer thoughtful gestures that show genuine care.
                 </p>
-
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Vulnerability Builds Trust</h3>
                 <p>
-                    The most important step in creating a strong bond is <strong>reciprocal vulnerability</strong>. Sharing your worries, fears, and successes—and being met with empathy—lays the foundation for long-term trust and intimacy.
+                    <strong>Strengths:</strong> Empathy, active listening, emotional support, and loyalty. Nurturers make friends feel truly seen and valued.
+                </p>
+                <p>
+                    <strong>Perfect Match:</strong> Nurturers pair beautifully with Loyalists who appreciate their emotional depth, and with Entertainers who benefit from their grounding presence.
                 </p>
 
-                <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Part 2: Pillars of an Unbreakable Friendship</h2>
-                <p>As casual friendships grow into best friendships, they rely on four key pillars that maintain stability and depth.</p>
+                <h4 class="text-lg font-bold text-gray-800 mt-4">2. The Adventurer - The Spontaneous Explorer</h4>
+                <p>
+                    <strong>Adventurers</strong> bring excitement and novelty to friendships. They're always discovering new restaurants, planning weekend trips, or suggesting activities nobody has tried before. Adventurers view friendships as opportunities for shared experiences and personal growth. They push friends outside comfort zones in the best possible way.
+                </p>
+                <p>
+                    <strong>Strengths:</strong> Spontaneity, openness, enthusiasm, and inspiring others to embrace new experiences.
+                </p>
+                <p>
+                    <strong>Perfect Match:</strong> Adventurers connect well with other Adventurers for epic experiences, and with Nurturers who provide emotional processing after big adventures.
+                </p>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-4">3. The Entertainer - The Social Connector</h4>
+                <p>
+                    <strong>Entertainers</strong> are the life of the party and natural community builders. They effortlessly bring people together, maintain group chats, and ensure nobody feels left out. Entertainers use humor and positive energy to lift spirits and create joyful memories. They excel at reading social dynamics and making everyone feel included.
+                </p>
+                <p>
+                    <strong>Strengths:</strong> Charisma, social intelligence, optimism, and the ability to energize groups.
+                </p>
+                <p>
+                    <strong>Perfect Match:</strong> Entertainers thrive with Loyalists who provide steady support for their social endeavors, and with Adventurers who match their enthusiasm.
+                </p>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-4">4. The Loyalist - The Dependable Rock</h4>
+                <p>
+                    <strong>Loyalists</strong> are the foundation of lasting friendships. They value quality over quantity and invest deeply in a small circle of close friends. Loyalists are incredibly reliable—they show up when it matters most and maintain friendships through all life changes. They may take time to open up, but once they do, the bond is unshakeable.
+                </p>
+                <p>
+                    <strong>Strengths:</strong> Dependability, consistency, deep commitment, and unwavering support.
+                </p>
+                <p>
+                    <strong>Perfect Match:</strong> Loyalists form powerful bonds with Nurturers who appreciate their steady presence, and with other Loyalists who share their values of commitment.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Why Friendship Compatibility Matters</h2>
+                <p>
+                    Understanding friendship compatibility doesn't mean you can only be friends with certain types. Rather, it helps you appreciate different approaches to friendship and communicate more effectively. When you recognize a friend's style, you can better meet their needs and express your own.
+                </p>
+                <p>
+                    For example, if you're a Nurturer with an Adventurer friend, you might need to explicitly ask for the deep conversations you crave, while your Adventurer friend might need you to occasionally embrace spontaneity. This awareness prevents misunderstandings and strengthens bonds.
+                </p>
+
+                <h3 class="text-xl font-semibold text-purple-700 mt-6 mb-3">Complementary vs. Similar Friendships</h3>
+                <p>
+                    Some of the strongest friendships form between complementary types. A Nurturer and an Entertainer balance emotional depth with social joy. An Adventurer and a Loyalist combine excitement with stability. These friendships work because each person brings something the other lacks, creating a more complete relationship.
+                </p>
+                <p>
+                    However, similar friendships also thrive because of shared values and natural understanding. Two Nurturers create an incredibly supportive bond, while two Adventurers embark on unforgettable journeys together.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Building Stronger Friendships Through Self-Awareness</h2>
+                <p>
+                    Once you understand your friendship personality, you can leverage your strengths and work on potential blind spots:
+                </p>
 
                 <ul class="list-disc ml-6 mt-4 space-y-2">
-                    <li><strong>Unwavering Trust:</strong> Belief in your friend's good intentions and reliability.</li>
-                    <li><strong>Emotional Reciprocity:</strong> Balanced giving and receiving of support, advice, and empathy.</li>
-                    <li><strong>Shared History:</strong> Inside jokes, milestones, and shared experiences create a unique friendship identity.</li>
-                    <li><strong>Unconditional Support:</strong> A safe harbor for honest expression and non-judgmental guidance, even in difficult moments.</li>
+                    <li><strong>Nurturers:</strong> Remember to accept support, not just give it. Practice asking for help and sharing your own vulnerabilities.</li>
+                    <li><strong>Adventurers:</strong> Balance exciting activities with quiet connection time. Not every hangout needs to be an adventure.</li>
+                    <li><strong>Entertainers:</strong> Create space for one-on-one depth alongside group activities. Individual friends need personal attention too.</li>
+                    <li><strong>Loyalists:</strong> Push yourself to maintain connections during busy periods. Consistent small efforts prevent drift.</li>
                 </ul>
 
-                <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Part 3: Friendship Lifecycle – Growing Together</h2>
-                <p>Friendships are dynamic. To thrive, they must adapt through different life stages and challenges.</p>
-
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Honeymoon and Comfort Phases</h3>
-                <p>The initial excitement of a friendship—the "honeymoon phase"—evolves into deep comfort. You can simply "be" with your friend without constant effort, though this comfort requires maintenance to prevent stagnation.</p>
-
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Life Disruptors</h3>
-                <p>Jobs, moves, relationships, and family changes challenge friendships. Active maintenance—calling, visiting, scheduling time—is required to sustain deep bonds.</p>
-
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Rupture and Repair</h3>
-                <p>Conflict is natural. Strong friendships survive through:</p>
-                <ul class="list-disc ml-6 mt-4 space-y-2">
-                    <li><strong>Avoiding the "Four Horsemen":</strong> Criticism, contempt, defensiveness, and stonewalling.</li>
-                    <li><strong>Using "I" Statements:</strong> Express feelings constructively instead of blaming.</li>
-                    <li><strong>Mastering Genuine Apologies:</strong> Acknowledge mistakes and their impact without excuses.</li>
-                </ul>
-                <p>Successful repair strengthens the friendship beyond its previous state.</p>
-
-                <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">Part 4: Modern Friendships – Digital Connection vs Emotional Core</h2>
-                <p>The digital world allows continuous low-effort connection but cannot replace real emotional intimacy.</p>
-
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Digital Bridge</h3>
-                <p>Memes, texts, and social media keep friends connected over long distances, maintaining a constant thread of interaction.</p>
-
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Emotional Core</h3>
-                <p>True intimacy requires meaningful conversations and intentional face-to-face or video interactions. The best friendships combine digital maintenance with quality synchronous interaction.</p>
+                <h2 class="text-2xl font-bold text-gray-800 mt-12 mb-4">The Modern Friendship Landscape</h2>
+                <p>
+                    Today's friendships navigate unique challenges and opportunities. Digital communication allows constant connection but can lack depth. Different friendship styles adapt differently to this landscape:
+                </p>
+                <p>
+                    <strong>Nurturers</strong> excel at meaningful texts and video calls. <strong>Entertainers</strong> thrive in group chats and social media interaction. <strong>Adventurers</strong> use digital tools to plan in-person experiences. <strong>Loyalists</strong> prefer quality virtual hangouts that feel substantial.
+                </p>
+                <p>
+                    The key for all types is balancing digital convenience with intentional, meaningful interaction—whether virtual or in-person.
+                </p>
 
                 <hr class="my-8 border-gray-300">
 
-                <p class="text-center font-semibold text-gray-800 mt-4">
-                    Remember: a <strong>friendship quiz</strong> is just for fun. The real value lies in the shared laughs, support, and deep bonds you nurture with your best friend.
+                <p class="text-center font-semibold text-gray-800 mt-6 mb-4">
+                    Ready to challenge your friends? <a href="https://bestiequiz.com" class="text-purple-600 hover:underline font-bold">Make your own Bestie Quiz</a> and see how well they really know you!
+                </p>
+
+                <p class="text-center text-gray-700">
+                    The best friendships celebrate differences. Use your newfound self-awareness to craft the perfect custom quiz that highlights your unique friendship!
                 </p>
 
             </div>
@@ -279,120 +704,190 @@
     </div>
 
     <div id="resultModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center p-4 z-50">
-        <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-95" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <h3 id="modalTitle" class="text-3xl font-bold text-center mb-4">Quiz Results 🏆</h3>
-            <p class="text-center text-gray-600 mb-6">See how well you scored on the Ultimate Best Friend Test!</p>
-
+        <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-2xl w-full transform transition-all duration-300 scale-95 max-h-[90vh] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <h3 id="modalTitle" class="text-3xl font-bold text-center mb-4">Your Friendship Personality! 🎉</h3>
+            
             <div class="text-center mb-6">
-                <p class="text-6xl font-extrabold text-teal-600" id="scoreDisplay">0/15</p>
+                <p class="text-5xl font-extrabold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2" id="personalityType">The Nurturer</p>
+                <p class="text-xl text-gray-600" id="personalitySubtitle">The Empathetic Caregiver</p>
             </div>
 
-            <div class="mb-6">
-                <p class="text-center text-xl font-semibold mb-2 text-gray-700">Friendship Status:</p>
-                <p class="text-center text-2xl font-bold text-indigo-700 bg-indigo-100 p-3 rounded-lg" id="statusDisplay">Casual Acquaintance</p>
+            <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg mb-6">
+                <p class="text-gray-800 text-center leading-relaxed" id="personalityDescription">
+                    Loading your personalized results...
+                </p>
             </div>
 
-            <div class="bg-gray-50 p-4 rounded-lg">
-                <h4 class="font-bold text-gray-800 mb-2">Scoring Guide:</h4>
-                <ul class="text-sm text-gray-600 space-y-1">
-                    <li><strong class="text-teal-600">0 - 5:</strong> Casual Acquaintance</li>
-                    <li><strong class="text-teal-600">6 - 10:</strong> Solid Pal</li>
-                    <li><strong class="text-teal-600">11 - 14:</strong> True BFF</li>
-                    <li><strong class="text-teal-600">15/15:</strong> Soulmate Status</li>
+            <div class="bg-gray-50 p-5 rounded-lg mb-6">
+                <h4 class="font-bold text-gray-800 mb-3 text-lg">Your Friendship Strengths:</h4>
+                <ul class="text-gray-700 space-y-2" id="strengthsList">
+                    <li>• Loading...</li>
                 </ul>
             </div>
 
-            <button onclick="closeModal()" class="mt-6 w-full bg-indigo-500 text-white font-bold py-3 rounded-lg hover:bg-indigo-600 transition duration-300">
-                Close & Challenge My Friend
-            </button>
+            <div class="bg-purple-50 p-5 rounded-lg mb-6">
+                <h4 class="font-bold text-purple-800 mb-3 text-lg">Use This to Make Your Custom Quiz:</h4>
+                <p class="text-gray-700" id="matchesText">Loading...</p>
+            </div>
+
+            <div class="bg-indigo-50 p-5 rounded-lg mb-6">
+                <h4 class="font-bold text-indigo-800 mb-3 text-lg">Tips for Connecting with Friends:</h4>
+                <p class="text-gray-700" id="tipsText">Loading...</p>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="retakeQuiz()" class="flex-1 bg-gray-500 text-white font-bold py-3 rounded-lg hover:bg-gray-600 transition duration-300">
+                    Retake Personality Quiz
+                </button>
+                <a href="https://bestiequiz.com" class="flex-1 text-center bg-gradient-to-r from-pink-600 to-red-600 text-white font-bold py-3 rounded-lg hover:from-pink-700 hover:to-red-700 transition duration-300">
+                    Go Create My Bestie Quiz!
+                </a>
+            </div>
+
+            <div class="mt-4 text-center">
+                <button onclick="closeModal()" class="text-gray-600 hover:underline font-semibold">
+                    Close Results
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
-        // Placeholder 'Correct' Answers (Simulating the friend's actual answers)
-        // Note: In a real app, this might be fetched from a database or set by the friend.
-        const correctAnswers = {
-            q1: 'Blue',
-            q2: 'Mexican',
-            q3: 'Marie',
-            q4: 'Japan',
-            q5: 'Spiders',
-            q6: 'Shrek',
-            q7: 'Flying',
-            q8: 'Buddy',
-            q9: 'Dishes',
-            q10: 'Iced Latte',
-            q11: 'House',
-            q12: 'Cereal',
-            q13: 'Guitar',
-            q14: 'Leslie Knope',
-            q15: 'Running late'
+        const personalityTypes = {
+            nurturer: {
+                name: "The Nurturer",
+                subtitle: "The Empathetic Caregiver",
+                description: "You are the emotional anchor in your friendships. Your exceptional empathy and genuine care make friends feel truly seen and valued. You create safe spaces for vulnerability and remember the little details that matter most. Use these deep-connection traits to create questions about your friends' emotional needs or their favorite shared memories.",
+                strengths: [
+                    "Exceptional emotional intelligence and empathy",
+                    "Active listening skills that make friends feel heard",
+                    "Thoughtful gestures and remembering important details",
+                    "Creating safe spaces for authentic expression",
+                    "Offering wise, compassionate advice"
+                ],
+                matches: "You are focused on deep emotional bonds. **For your quiz,** include questions about your friends' favorite deep conversations, personal milestones you helped them through, or your most valued emotional-support moments together.",
+                tips: "Remember to accept support, not just give it. Practice asking for help and sharing your own vulnerabilities. Your friends want to be there for you too!"
+            },
+            adventurer: {
+                name: "The Adventurer",
+                subtitle: "The Spontaneous Explorer",
+                description: "You bring excitement and novelty to every friendship. Always discovering new experiences, you view friendships as opportunities for shared adventures and personal growth. Use your spontaneous traits to create questions about your favorite trips, wildest experiences, or future plans together.",
+                strengths: [
+                    "Spontaneity and enthusiasm for new experiences",
+                    "Inspiring others to embrace adventure",
+                    "Open-mindedness and flexibility",
+                    "Creating exciting, memorable moments",
+                    "Helping friends grow and try new things"
+                ],
+                matches: "You thrive on shared experiences. **For your quiz,** focus on questions about specific trips you took, the craziest thing you've convinced your friend to try, or the next big adventure you're planning.",
+                tips: "Balance exciting activities with quiet connection time. Not every hangout needs to be an adventure—sometimes friends just need your presence and conversation."
+            },
+            entertainer: {
+                name: "The Entertainer",
+                subtitle: "The Social Connector",
+                description: "You are the life of the party and a natural community builder. You effortlessly bring people together, maintain connections, and ensure nobody feels left out. Use your social traits to create questions about your funniest moments, favorite group chat memes, or a party you planned together.",
+                strengths: [
+                    "Natural charisma and social intelligence",
+                    "Bringing people together and building community",
+                    "Using humor to lift spirits and ease tension",
+                    "High energy and infectious enthusiasm",
+                    "Making everyone feel included and valued"
+                ],
+                matches: "You are focused on joy and social interaction. **For your quiz,** ask questions about your inside jokes, your most embarrassing public moment, who you've introduced them to, or their favorite story about you at a social event.",
+                tips: "Create space for one-on-one depth alongside group activities. Individual friends need personal attention and deeper conversations beyond the group dynamic."
+            },
+            loyalist: {
+                name: "The Loyalist",
+                subtitle: "The Dependable Rock",
+                description: "You are the foundation of lasting friendships. Valuing quality over quantity, you invest deeply in a small circle of close friends. Use your reliable traits to create questions about your longevity, the promises you've kept, or a time you were there for them no matter what.",
+                strengths: [
+                    "Exceptional dependability and reliability",
+                    "Deep commitment to long-term friendships",
+                    "Showing up when it matters most",
+                    "Unwavering support through life changes",
+                    "Creating stable, secure friendships"
+                ],
+                matches: "You value consistency and commitment. **For your quiz,** your questions should cover things like how long you've been friends, a core value you share, the most reliable thing you do, or a time you stood up for them.",
+                tips: "Push yourself to maintain connections during busy periods. Consistent small efforts—like quick check-ins—prevent drift and show friends you're thinking of them."
+            }
         };
 
         const form = document.getElementById('friendshipQuiz');
         const modal = document.getElementById('resultModal');
-        const scoreDisplay = document.getElementById('scoreDisplay');
-        const statusDisplay = document.getElementById('statusDisplay');
 
-        // Function to handle showing the modal
         function showModal() {
             modal.classList.remove('hidden');
             modal.classList.add('flex');
         }
 
-        // Function to handle hiding the modal
         function closeModal() {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
         }
 
-        function calculateScore() {
-            let score = 0;
-            const totalQuestions = Object.keys(correctAnswers).length;
+        function retakeQuiz() {
+            closeModal();
+            form.reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function calculatePersonality() {
+            const scores = {
+                nurturer: 0,
+                adventurer: 0,
+                entertainer: 0,
+                loyalist: 0
+            };
+
             const formData = new FormData(form);
+            let answeredQuestions = 0;
 
-            for (let i = 1; i <= totalQuestions; i++) {
-                const questionKey = `q${i}`;
-                const userAnswer = formData.get(questionKey) ? formData.get(questionKey).trim().toLowerCase() : '';
-                const correctAnswer = correctAnswers[questionKey] ? correctAnswers[questionKey].toLowerCase() : '';
-
-                // Simple scoring logic: check if the user's answer contains the main keyword of the correct answer
-                if (userAnswer && correctAnswer && userAnswer.includes(correctAnswer.split(' ')[0])) {
-                    score++;
+            for (let i = 1; i <= 15; i++) {
+                const answer = formData.get(`q${i}`);
+                if (answer) {
+                    scores[answer]++;
+                    answeredQuestions++;
                 }
             }
 
-            // Determine Status and corresponding Tailwind classes
-            let status = '';
-            let statusColor = '';
-
-            if (score <= 5) {
-                status = 'Casual Acquaintance';
-                statusColor = 'text-red-700 bg-red-100';
-            } else if (score <= 10) {
-                status = 'Solid Pal';
-                statusColor = 'text-yellow-700 bg-yellow-100';
-            } else if (score <= 14) {
-                status = 'True BFF';
-                statusColor = 'text-blue-700 bg-blue-100';
-            } else {
-                status = 'Soulmate Status! 💖';
-                statusColor = 'text-green-700 bg-green-100';
+            if (answeredQuestions < 15) {
+                alert('Please answer all questions to get your results!');
+                return;
             }
 
-            // Update Modal Content
-            scoreDisplay.textContent = `${score}/${totalQuestions}`;
-            statusDisplay.textContent = status;
-            // Set the dynamic color class along with fixed styling classes
-            statusDisplay.className = `text-center text-2xl font-bold ${statusColor} p-3 rounded-lg`;
+            // Find the highest score
+            let maxScore = 0;
+            let personalityType = 'nurturer';
 
-            // Show Modal
+            for (const [type, score] of Object.entries(scores)) {
+                if (score > maxScore) {
+                    maxScore = score;
+                    personalityType = type;
+                }
+            }
+
+            displayResults(personalityType);
+        }
+
+        function displayResults(type) {
+            const personality = personalityTypes[type];
+
+            document.getElementById('personalityType').textContent = personality.name;
+            document.getElementById('personalitySubtitle').textContent = personality.subtitle;
+            document.getElementById('personalityDescription').textContent = personality.description;
+            
+            const strengthsList = document.getElementById('strengthsList');
+            strengthsList.innerHTML = personality.strengths.map(strength => `<li>• ${strength}</li>`).join('');
+            
+            document.getElementById('matchesText').textContent = personality.matches;
+            document.getElementById('tipsText').textContent = personality.tips;
+
             showModal();
         }
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            calculateScore();
+            calculatePersonality();
         });
     </script>
 </body>
